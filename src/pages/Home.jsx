@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { axiosInstance } from "../utils";
-
+import  ProductList  from "../components/ProductList";
 export const loader = async () => {
   const req = await axiosInstance("/product");
   return req;
@@ -8,11 +8,13 @@ export const loader = async () => {
 
 const Home = () => {
   const {
-    data: { product },
+    data: { products },
   } = useLoaderData();
-  console.log(product);
-  
-  return <div>Home</div>;
+
+
+  return <div className="">
+    <ProductList />
+  </div>;
 };
 
 export default Home;
