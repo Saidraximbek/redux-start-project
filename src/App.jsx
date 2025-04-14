@@ -6,6 +6,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import MainLayout from "./layout/MainLayout";
 import { loader as HomeLoader } from "./pages/Home";
+import { loader as ProductLoader } from "./pages/Product";
+import Product from "./pages/Product";
 const App = () => {
   const routes = createBrowserRouter([
     {
@@ -25,6 +27,12 @@ const App = () => {
         {
           path: "/contact",
           element: <Contact />,
+         
+        },
+        {
+          path: "/product/:id",
+          element: <Product />,
+          loader: ProductLoader
          
         },
       ],

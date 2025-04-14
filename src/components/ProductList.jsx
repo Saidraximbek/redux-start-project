@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 
 const ProductList = () => {
   const {
@@ -12,28 +12,30 @@ const ProductList = () => {
       {products &&
         products.map((p) => {
           return (
-            <div
-              key={p.id}
-              className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <img
-                src={p.thumbnail}
-                alt={p.title}
-                className="w-full h-[250px] object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-lg font-semibold mb-1">{p.title}</h2>
-                <p className="text-sm text-gray-500 mb-2 line-clamp-2">
-                  {p.description}
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-green-600 font-bold">{p.price}</span>
-                  <span className="text-yellow-500 font-semibold">
-                    ⭐ {p.rank}
-                  </span>
+            <NavLink to={`/product/${p.id}`}>
+              <div
+                key={p.id}
+                className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              >
+                <img
+                  src={p.thumbnail}
+                  alt={p.title}
+                  className="w-full h-[250px] object-cover"
+                />
+                <div className="p-4">
+                  <h2 className="text-lg font-semibold mb-1">{p.title}</h2>
+                  <p className="text-sm text-gray-500 mb-2 line-clamp-2">
+                    {p.description}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-green-600 font-bold">{p.price}</span>
+                    <span className="text-yellow-500 font-semibold">
+                      ⭐ {p.rank}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </NavLink>
           );
         })}
     </div>
